@@ -175,7 +175,7 @@ declare class Sound {
    * Turn speaker phone on (android only)
    * @param value
    */
-  setSpeakerphoneOn(value: boolean): void
+  setSpeakerphoneOn(value: boolean,isVoip:boolean): void
 
   /**
    * Whether the player is playing or not.

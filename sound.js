@@ -220,9 +220,9 @@ Sound.prototype.setCurrentTime = function(value) {
 };
 
 // android only
-Sound.prototype.setSpeakerphoneOn = function(value) {
+Sound.prototype.setSpeakerphoneOn = function(value,isVoip) {
   if (IsAndroid) {
-    RNSound.setSpeakerphoneOn(this._key, value);
+    RNSound.setSpeakerphoneOn(this._key, value,isVoip?true:false);
   }
 };
 

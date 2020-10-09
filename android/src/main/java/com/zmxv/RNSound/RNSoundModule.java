@@ -406,7 +406,7 @@ public class RNSoundModule extends ReactContextBaseJavaModule implements AudioMa
 
   //turn speaker on
   @ReactMethod
-  public void setSpeakerphoneOn(final Double key, final Boolean speaker) {
+  public void setSpeakerphoneOn(final Double key, final Boolean speaker, final Boolean voip) {
     MediaPlayer player = this.playerPool.get(key);
     if (player != null) {
       player.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -414,7 +414,11 @@ public class RNSoundModule extends ReactContextBaseJavaModule implements AudioMa
       if(speaker){
         audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
       }else{
-        audioManager.setMode(AudioManager.MODE_NORMAL);
+        if(voip){
+         audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+        }else{
+         audioManager.setMode(AudioManager.MODE_NORMAL);
+        }
       }
       audioManager.setSpeakerphoneOn(speaker);
     }
