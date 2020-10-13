@@ -224,8 +224,6 @@ Sound.prototype.setSpeakerphoneOn = function(value,isVoip) {
   if (IsAndroid) {
     RNSound.setSpeakerphoneOn(this._key, value,isVoip?true:false);
   }
-};
-
 // ios only
 
 // This is deprecated.  Call the static one instead.
